@@ -18,6 +18,7 @@ def insta_follower_data():
 
     # Print list of followers
     follow_list = []
+    print('Fetching followers of the profile {}.'.format(profile.username))
     count = 0
     for followers in profile.get_followers():
         follow_list.append(followers.username)
@@ -46,6 +47,7 @@ def insta_post_likes():
     # NOW = datetime.now()
     # for post in takewhile(lambda p: NOW - p.date < timedelta(days=7), profile.get_posts()):
     for post in islice(profile.get_posts(), 2):
+        # gives post tag
         print(post)
         likes = likes | set(post.get_likes())
 
